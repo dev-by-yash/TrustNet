@@ -35,14 +35,14 @@ export default function NetworkPage() {
                 </h1>
                 <p className="text-vault-slate text-sm font-mono mt-1">Decentralized Relay Node Infrastructure</p>
             </div>
-             <div className="flex items-center gap-4 text-xs font-mono text-vault-slate">
+                 <div className="flex items-center gap-4 text-xs font-mono text-vault-slate">
                 <div className="flex items-center gap-1.5">
                     <div className="w-2 h-2 rounded-full bg-vault-green animate-pulse" />
                     <span>SYSTEM NORMAL</span>
                 </div>
                  <div className="flex items-center gap-1.5">
                     <Activity size={12} />
-                    <span>TPS: 14,203</span>
+                    <span>TPS: 0</span>
                 </div>
             </div>
         </div>
@@ -67,27 +67,9 @@ export default function NetworkPage() {
                         <CardTitle className="text-sm flex items-center gap-2"><Server size={14}/> ACTIVE RELAYS</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        {[
-                            { name: 'Relay-US-East', lat: '14ms', load: '45%' },
-                            { name: 'Relay-EU-West', lat: '32ms', load: '67%' },
-                            { name: 'Relay-Asia-Pac', lat: '89ms', load: '21%' },
-                            { name: 'Relay-SA-North', lat: '102ms', load: '12%' },
-                            { name: 'Home-Node-Alpha', lat: '2ms', load: '5%' },
-                        ].map((relay, i) => (
-                             <div key={i} className="flex items-center justify-between p-3 bg-vault-slate/5 rounded border border-vault-slate/10">
-                                <div className="flex items-center gap-3">
-                                    <Radio size={14} className="text-vault-green" />
-                                    <div>
-                                        <div className="text-xs font-bold text-white">{relay.name}</div>
-                                        <div className="text-[10px] text-vault-slate font-mono">ID: {`0x${i}F...A${i}`}</div>
-                                    </div>
-                                </div>
-                                <div className="text-right text-[10px] font-mono">
-                                    <div className="text-vault-blue">{relay.lat}</div>
-                                    <div className="text-vault-slate">{relay.load} LOAD</div>
-                                </div>
-                             </div>
-                        ))}
+                        <div className="p-8 text-center">
+                            <p className="text-vault-slate/50 font-mono text-sm">No relay nodes active. Deploy nodes to see status.</p>
+                        </div>
                     </CardContent>
                 </Card>
 
@@ -100,19 +82,19 @@ export default function NetworkPage() {
                             <div className="space-y-1">
                                 <div className="flex justify-between text-[10px] font-mono text-vault-slate">
                                     <span>INGRESS</span>
-                                    <span>2.4 GB/s</span>
+                                    <span>0.0 GB/s</span>
                                 </div>
                                 <div className="h-1.5 w-full bg-vault-slate/10 rounded-full overflow-hidden">
-                                    <div className="h-full bg-vault-blue w-[45%]" />
+                                    <div className="h-full bg-vault-blue w-[0%]" />
                                 </div>
                             </div>
                             <div className="space-y-1">
                                 <div className="flex justify-between text-[10px] font-mono text-vault-slate">
                                     <span>EGRESS</span>
-                                    <span>1.8 GB/s</span>
+                                    <span>0.0 GB/s</span>
                                 </div>
                                 <div className="h-1.5 w-full bg-vault-slate/10 rounded-full overflow-hidden">
-                                    <div className="h-full bg-purple-500 w-[30%]" />
+                                    <div className="h-full bg-purple-500 w-[0%]" />
                                 </div>
                             </div>
                         </div>

@@ -6,16 +6,7 @@ import { FileText, AlertTriangle, CheckCircle, Info, ShieldAlert } from 'lucide-
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
-const logs = [
-  { id: 1, type: 'critical', msg: 'Unauthorized access attempt blocked from IP 192.168.1.105', time: '14:20:05', date: '2023-10-25' },
-  { id: 2, type: 'info', msg: 'System backup completed successfully (Encrypted)', time: '14:15:00', date: '2023-10-25' },
-  { id: 3, type: 'warning', msg: 'Node latency experienced a spike > 500ms', time: '14:12:33', date: '2023-10-25' },
-  { id: 4, type: 'success', msg: 'New employee node [SV-008] successfully provisioned', time: '13:45:12', date: '2023-10-25' },
-  { id: 5, type: 'info', msg: 'User login: SV-ADMIN-01', time: '13:30:00', date: '2023-10-25' },
-  { id: 6, type: 'info', msg: 'Protocol update checked - Environment Up to date', time: '12:00:00', date: '2023-10-25' },
-  { id: 7, type: 'warning', msg: 'Memory usage high on Relay-EU-West', time: '11:55:01', date: '2023-10-25' },
-  { id: 8, type: 'success', msg: 'Smart Contract audit verification passed', time: '10:00:00', date: '2023-10-25' },
-]
+const logs: any[] = []
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -65,7 +56,11 @@ export default function AuditPage() {
                     </div>
                     
                     <div className="divide-y divide-vault-slate/10">
-                        {logs.map((log) => (
+                        {logs.length === 0 ? (
+                            <div className="p-16 text-center">
+                                <p className="text-vault-slate/50 font-mono text-sm">No audit logs yet. System events will appear here.</p>
+                            </div>
+                        ) : logs.map((log) => (
                             <motion.div 
                                 variants={itemVariants}
                                 key={log.id} 

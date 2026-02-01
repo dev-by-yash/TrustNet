@@ -43,16 +43,16 @@ export default function DashboardPage() {
         {/* Stats Row */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <motion.div variants={itemVariants}>
-                <StatsDisplay label="Active Keys" value={100} trend="+12% this week" encrypted />
+                <StatsDisplay label="Active Keys" value={0} trend="" encrypted />
             </motion.div>
             <motion.div variants={itemVariants}>
-                <StatsDisplay label="Daily Transactions" value={2847} unit="TXs" trend="+5.2%" encrypted />
+                <StatsDisplay label="Daily Transactions" value={0} unit="TXs" trend="" encrypted />
             </motion.div>
             <motion.div variants={itemVariants}>
-                <StatsDisplay label="Network Traffic" value="4.2" unit="PB/s" />
+                <StatsDisplay label="Network Traffic" value="0.0" unit="PB/s" />
             </motion.div>
             <motion.div variants={itemVariants}>
-                <StatsDisplay label="Privacy Score" value="99.9" unit="%" trend="Optimal" />
+                <StatsDisplay label="Privacy Score" value="0.0" unit="%" trend="" />
             </motion.div>
         </div>
 
@@ -145,16 +145,11 @@ export default function DashboardPage() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {[1,2,3,4].map((i) => (
-                                    <tr key={i} className="border-b border-vault-slate/10 group hover:bg-vault-slate/5 transition-colors cursor-crosshair">
-                                        <td className="py-3 text-vault-slate/70 group-hover:text-vault-blue transition-colors">0x7a...8b9{i}</td>
-                                        <td className="py-3 text-vault-slate">2026-01-31 14:2{i}:05</td>
-                                        <td className="py-3">************</td>
-                                        <td className="py-3">************</td>
-                                        <td className="py-3 font-bold text-white">{(Math.random() * 1000).toFixed(2)}</td>
-                                        <td className="py-3"><Badge variant="default" className="text-[10px] h-5">VERIFIED</Badge></td>
-                                    </tr>
-                                ))}
+                                <tr>
+                                    <td colSpan={6} className="py-8 text-center text-vault-slate/50 text-sm">
+                                        No transactions yet. Connect wallet to get started.
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>

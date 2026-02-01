@@ -7,16 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 
-const employees = [
-  { id: 'SV-001', name: 'Alex Chen', role: 'SysAdmin', department: 'Infrastructure', status: 'online', vpn: 'connected', ip: '10.0.4.55' },
-  { id: 'SV-002', name: 'Sarah Miller', role: 'DevOps', department: 'Engineering', status: 'online', vpn: 'connected', ip: '10.0.4.58' },
-  { id: 'SV-003', name: 'James Wilson', role: 'Security', department: 'InfoSec', status: 'offline', vpn: 'disconnected', ip: '---' },
-  { id: 'SV-004', name: 'Emma Davis', role: 'Analyst', department: 'Data', status: 'online', vpn: 'connecting', ip: '10.0.4.62' },
-  { id: 'SV-005', name: 'Michael Brown', role: 'Developer', department: 'Frontend', status: 'online', vpn: 'connected', ip: '10.0.4.12' },
-  { id: 'SV-006', name: 'Lisa Wang', role: 'Manager', department: 'Product', status: 'offline', vpn: 'disconnected', ip: '---' },
-  { id: 'SV-007', name: 'David Lee', role: 'QA', department: 'Engineering', status: 'online', vpn: 'connected', ip: '10.0.4.89' },
-  { id: 'SV-008', name: 'Robert Taylor', role: 'Designer', department: 'Product', status: 'online', vpn: 'encrypted', ip: '10.0.4.44' },
-]
+const employees: any[] = []
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -64,7 +55,11 @@ export default function EmployeesPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            {employees.map((emp) => (
+            {employees.length === 0 ? (
+                <div className="col-span-full py-16 text-center">
+                    <p className="text-vault-slate/50 font-mono text-sm">No employees yet. Deploy your first node to get started.</p>
+                </div>
+            ) : employees.map((emp) => (
                 <motion.div key={emp.id} variants={itemVariants}>
                     <Card className="hover:border-vault-green/30 transition-colors group cursor-pointer border-vault-slate/10 bg-vault-bg">
                         <CardContent className="p-5 space-y-4">
@@ -112,7 +107,8 @@ export default function EmployeesPage() {
                         </CardContent>
                     </Card>
                 </motion.div>
-            ))}
+            )))
+            }
         </div>
     </motion.div>
   )
