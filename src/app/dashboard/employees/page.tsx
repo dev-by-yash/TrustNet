@@ -107,8 +107,7 @@ export default function EmployeesPage() {
                         </CardContent>
                     </Card>
                 </motion.div>
-            )))
-            }
+            ))}
         </div>
     </motion.div>
   )
